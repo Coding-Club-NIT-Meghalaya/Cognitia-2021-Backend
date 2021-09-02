@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Year, Event, Prize, TeamMember
 from .serializers import YearSerializer, EventSerializer, PrizeSerializer, TeamMemberSerializer
+from django.db.models import CharField, Value, ForeignKey, query
 
 # Create your views here.
 
@@ -12,8 +13,11 @@ class YearView(viewsets.ModelViewSet):
 
 
 class EventView(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
     serializer_class = EventSerializer
+
+    def get_queryset(self):
+        query_set = Event.objects.all()
+        return query_set
 
 
 class PrizeView(viewsets.ModelViewSet):
@@ -24,3 +28,4 @@ class PrizeView(viewsets.ModelViewSet):
 class TeamMemberView(viewsets.ModelViewSet):
     queryset = TeamMember.objects.all()
     serializer_class = TeamMemberSerializer
+    filterset_fields = ['event_name']

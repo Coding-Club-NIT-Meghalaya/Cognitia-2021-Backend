@@ -45,10 +45,10 @@ class Event(models.Model):
 
 
 class TeamMember(models.Model):
-    name = models.CharField(max_length=100)
+    member_name = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     roll_no = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     image = models.ImageField(upload_to='images')
     event_name = models.ForeignKey(
-        Event, on_delete=models.PROTECT, related_name='event_name')
+        Event, on_delete=models.PROTECT, related_name='team_members')

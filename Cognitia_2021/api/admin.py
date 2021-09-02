@@ -23,5 +23,5 @@ class EventAdmin(admin.ModelAdmin):
 
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
-    list_display = ['name', 'type', 'roll_no',
+    list_display = ['member_name', 'type', 'roll_no',
                     'email', 'image', 'event_name']
