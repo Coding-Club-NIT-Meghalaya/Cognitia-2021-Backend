@@ -14,6 +14,7 @@ class YearView(viewsets.ModelViewSet):
 
 class EventView(viewsets.ModelViewSet):
     serializer_class = EventSerializer
+    filterset_fields = ['year']
 
     def get_queryset(self):
         query_set = Event.objects.all()

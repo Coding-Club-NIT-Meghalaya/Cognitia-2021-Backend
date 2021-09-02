@@ -4,12 +4,12 @@ from django.db import models
 
 
 class Year(models.Model):
-    year = models.CharField(max_length=50)
+    year = models.IntegerField(primary_key=True)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
 
     def __str__(self):
-        return self.year
+        return str(self.year)
 
 
 class Prize(models.Model):

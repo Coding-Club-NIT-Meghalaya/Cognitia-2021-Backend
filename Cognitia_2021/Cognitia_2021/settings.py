@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'Cognitia_2021.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cognitia',
+        'NAME': 'cognitia2',
         'USER': 'myuser',
         'HOST': 'localhost',
         'PORT': 5432,
