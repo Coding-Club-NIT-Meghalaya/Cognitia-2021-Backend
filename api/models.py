@@ -1,5 +1,5 @@
 from django.db import models
-
+from froala_editor.fields import FroalaField
 # Create your models here.
 
 
@@ -17,7 +17,7 @@ class Prize(models.Model):
     prize1 = models.IntegerField()
     prize2 = models.IntegerField()
     prize3 = models.IntegerField()
-    description = models.CharField(max_length=300)
+    description = FroalaField()
 
     def __str__(self):
         return "Prize 1: Rs."+str(self.prize1)+"  Prize 2: Rs."+str(self.prize2)+"  Prize 3: Rs."+str(self.prize3)
@@ -30,14 +30,14 @@ class Event(models.Model):
     type = models.CharField(max_length=200)
     start_time = models.TimeField()
     duration = models.CharField(max_length=20)
-    year = models.ForeignKey(
-        Year, on_delete=models.PROTECT, related_name='event_year')
+    rules = FroalaField()
     prize = models.ForeignKey(
         Prize, on_delete=models.PROTECT, related_name='prize')
-    description = models.CharField(max_length=500)
-    rules = models.CharField(max_length=200)
-    judging_parameter = models.CharField(max_length=500)
+    judging_parameter = FroalaField()
     registration_link = models.CharField(max_length=100)
+    year = models.ForeignKey(
+        Year, on_delete=models.PROTECT, related_name='event_year')
+    description = FroalaField()
     image = models.ImageField(upload_to='images')
 
     def __str__(self):
