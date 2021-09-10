@@ -39,6 +39,7 @@ class Event(models.Model):
         Year, on_delete=models.PROTECT, related_name='event_year')
     description = FroalaField()
     image = models.ImageField(upload_to='images')
+    meet_link = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -50,5 +51,6 @@ class TeamMember(models.Model):
     roll_no = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     image = models.ImageField(upload_to='images')
+    contact_no = models.CharField(max_length=50)
     event_name = models.ForeignKey(
         Event, on_delete=models.PROTECT, related_name='team_members')
