@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Year, Event, Prize, TeamMember
-from .serializers import YearSerializer, EventSerializer, PrizeSerializer, TeamMemberSerializer
+from .models import Year, Event, TeamMember
+from .serializers import YearSerializer, EventSerializer, TeamMemberSerializer
 from django.db.models import CharField, Value, ForeignKey, query
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
@@ -24,13 +24,6 @@ class EventView(viewsets.ModelViewSet):
     def get_queryset(self):
         query_set = Event.objects.all()
         return query_set
-
-
-class PrizeView(viewsets.ModelViewSet):
-    queryset = Prize.objects.all()
-    serializer_class = PrizeSerializer
-    authentication_classes = [SessionAuthentication]
-    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 class TeamMemberView(viewsets.ModelViewSet):

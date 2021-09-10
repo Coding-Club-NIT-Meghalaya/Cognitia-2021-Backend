@@ -11,7 +11,6 @@ router = routers.DefaultRouter()
 
 router.register('year', views.YearView, basename='year')
 router.register('events', views.EventView, basename='events')
-router.register('prize', views.PrizeView, basename='prize')
 router.register('teammembers', views.TeamMemberView, basename='teammember')
 
 urlpatterns = [

@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import Year, Event, Prize, TeamMember
+from .models import Year, Event, TeamMember
 
 
 class YearSerializer(serializers.ModelSerializer):
@@ -14,12 +14,6 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = '__all__'
         depth = 1
-
-
-class PrizeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Prize
-        fields = '__all__'
 
 
 class TeamMemberSerializer(serializers.ModelSerializer):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Year, Event, Prize, TeamMember
+from .models import Year, Event, TeamMember
 
 # Register your models here.
 
@@ -9,19 +9,13 @@ class YearAdmin(admin.ModelAdmin):
     list_display = ['year', 'start_date', 'end_date']
 
 
-@admin.register(Prize)
-class PrizeAdmin(admin.ModelAdmin):
-    list_display = ['scope', 'prize1',
-                    'prize2', 'prize3', 'description']
-
-
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     list_display = ['name', 'start_date', 'end_date',
-                    'type', 'start_time', 'duration', 'year', 'prize', 'description', 'rules', 'judging_parameter', 'registration_link', 'image']
+                    'type', 'duration', 'year', 'total_prize', 'description', 'registration_link', 'image', 'doc_link', 'meet_link']
 
 
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
-    list_display = ['member_name', 'type', 'roll_no',
-                    'email', 'image', 'event_name']
+    list_display = ['member_name', 'type',
+                    'email', 'image', 'event_name', 'contact_no']
