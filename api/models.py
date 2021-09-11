@@ -30,7 +30,7 @@ class Event(models.Model):
     year = models.ForeignKey(
         Year, on_delete=models.PROTECT, related_name='event_year')
     description = models.CharField(max_length=1000)
-    image = models.ImageField(upload_to='images')
+    image = models.CharField(max_length=200)
     meet_link = models.CharField(max_length=100)
     doc_link = models.CharField(max_length=100)
 
@@ -47,7 +47,11 @@ class TeamMember(models.Model):
     type = models.CharField(
         max_length=100, choices=POSITION_CHOICES, default='Coordinator')
     email = models.EmailField(max_length=100)
-    image = models.ImageField(upload_to='images')
+    image = models.CharField(max_length=200)
     contact_no = models.CharField(max_length=50)
     event_name = models.ForeignKey(
         Event, on_delete=models.PROTECT, related_name='team_members')
+
+
+class Gallery(models.Model):
+    image = models.CharField(max_length=200)
