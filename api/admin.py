@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Year, Event, TeamMember
+from .models import Gallery, Year, Event, TeamMember
 
 # Register your models here.
 
@@ -19,3 +19,8 @@ class EventAdmin(admin.ModelAdmin):
 class TeamMemberAdmin(admin.ModelAdmin):
     list_display = ['member_name', 'type',
                     'email', 'image', 'event_name', 'contact_no']
+
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ['image']

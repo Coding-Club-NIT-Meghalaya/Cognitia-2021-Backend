@@ -16,8 +16,13 @@ class Event(models.Model):
     TYPE_CHOICES = (
         ("Coding", "Coding"),
         ("Robotics", "Robotics"),
-        ("Departmental", "Departmental"),
+        ("Departmental CSE", "Departmental CSE"),
+        ("Departmental ECE", "Departmental ECE"),
+        ("Departmental EE", "Departmental EE"),
+        ("Departmental ME", "Departmental ME"),
+        ("Departmental CE", "Departmental CE"),
         ("Gaming", "Gaming"),
+        ("Other", "Other")
     )
     name = models.CharField(max_length=200)
     start_date = models.DateTimeField()
@@ -42,6 +47,8 @@ class TeamMember(models.Model):
     POSITION_CHOICES = (
         ("Coordinator", "Coordinator"),
         ("Co-Coordinator", "Co-Coordinator"),
+        ("General Secretary-Tech", "General Secretary-Tech"),
+        ("Core Member", "Core Member")
     )
     member_name = models.CharField(max_length=100)
     type = models.CharField(

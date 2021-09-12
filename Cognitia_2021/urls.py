@@ -12,6 +12,7 @@ router = routers.DefaultRouter()
 router.register('year', views.YearView, basename='year')
 router.register('events', views.EventView, basename='events')
 router.register('teammembers', views.TeamMemberView, basename='teammember')
+router.register('gallery', views.GalleryView, basename='gallery')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
