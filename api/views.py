@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework import filters
 from .models import Year, Event, TeamMember, Gallery
 from .serializers import YearSerializer, EventSerializer, TeamMemberSerializer, GallerySerializer
 from django.db.models import CharField, Value, ForeignKey, query
