@@ -22,7 +22,7 @@ class Event(models.Model):
         ("Departmental ME", "Departmental ME"),
         ("Departmental CE", "Departmental CE"),
         ("Gaming", "Gaming"),
-        ("Other", "Other")
+        ("Other", "Other"),
     )
     name = models.CharField(max_length=200)
     start_date = models.DateTimeField()
@@ -48,7 +48,16 @@ class TeamMember(models.Model):
         ("Coordinator", "Coordinator"),
         ("Co-Coordinator", "Co-Coordinator"),
         ("General Secretary-Tech", "General Secretary-Tech"),
-        ("Core Member", "Core Member")
+        ("Publicity and Core Team Coordinator",
+         "Publicity and Core Team Coordinator"),
+        ("Publicity and Core Team Co-Coordinator",
+         "Publicity and Core Team Co-Coordinator"),
+        ("Designing Team Coordinator", "Designing Team Coordinator"),
+        ("Designing Team Co-Coordinator", "Designing Team Co-Coordinator"),
+        ("Sponsor and Marketing Team Coordinator",
+         "Sponsor and Marketing Team Coordinator"),
+        ("Sponsor and Marketing Team Co-Coordinator",
+         "Sponsor and Marketing Team Co-Coordinator"),
     )
     member_name = models.CharField(max_length=100)
     type = models.CharField(
@@ -57,7 +66,7 @@ class TeamMember(models.Model):
     image = models.CharField(max_length=200)
     contact_no = models.CharField(max_length=50)
     event_name = models.ForeignKey(
-        Event, on_delete=models.PROTECT, related_name='team_members')
+        Event, on_delete=models.PROTECT, related_name='team_members', blank=True, null=True)
 
 
 class Gallery(models.Model):
