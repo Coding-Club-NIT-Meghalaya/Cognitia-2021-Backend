@@ -13,6 +13,8 @@ router.register('year', views.YearView, basename='year')
 router.register('events', views.EventView, basename='events')
 router.register('teammembers', views.TeamMemberView, basename='teammember')
 router.register('gallery', views.GalleryView, basename='gallery')
+router.register('notification', views.NotificationView,
+                basename='notification')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

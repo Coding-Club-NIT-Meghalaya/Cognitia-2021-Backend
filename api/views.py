@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import filters
-from .models import Year, Event, TeamMember, Gallery
-from .serializers import YearSerializer, EventSerializer, TeamMemberSerializer, GallerySerializer
+from .models import Notification, Year, Event, TeamMember, Gallery
+from .serializers import NotificationSerializer, YearSerializer, EventSerializer, TeamMemberSerializer, GallerySerializer
 from django.db.models import CharField, Value, ForeignKey, query
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
@@ -38,5 +38,12 @@ class TeamMemberView(viewsets.ModelViewSet):
 class GalleryView(viewsets.ModelViewSet):
     queryset = Gallery.objects.all()
     serializer_class = GallerySerializer
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+
+class NotificationView(viewsets.ModelViewSet):
+    queryset = Notification.objects.all()
+    serializer_class = NotificationSerializer
     authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]

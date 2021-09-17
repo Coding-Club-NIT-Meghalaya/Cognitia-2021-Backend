@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import Year, Event, TeamMember, Gallery
+from .models import Notification, Year, Event, TeamMember, Gallery
 
 
 class YearSerializer(serializers.ModelSerializer):
@@ -25,4 +25,10 @@ class TeamMemberSerializer(serializers.ModelSerializer):
 class GallerySerializer(serializers.ModelSerializer):
     class Meta:
         model = Gallery
+        fields = '__all__'
+
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notification
         fields = '__all__'

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Gallery, Year, Event, TeamMember
+from .models import Gallery, Notification, Year, Event, TeamMember
 
 # Register your models here.
 
@@ -24,3 +24,8 @@ class TeamMemberAdmin(admin.ModelAdmin):
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ['image']
+
+
+@admin.register(Notification)
+class NotificationAdmin(admin.ModelAdmin):
+    list_display = ['notification']

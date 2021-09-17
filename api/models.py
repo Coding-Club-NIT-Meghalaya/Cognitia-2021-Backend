@@ -58,6 +58,11 @@ class TeamMember(models.Model):
          "Sponsor and Marketing Team Coordinator"),
         ("Sponsor and Marketing Team Co-Coordinator",
          "Sponsor and Marketing Team Co-Coordinator"),
+        ("Web Development Team Coordinator",
+         "Web Development Team Coordinator"),
+        ("Web Development Team Co-Coordinator",
+         "Web Development Team Co-Coordinator"),
+
     )
     member_name = models.CharField(max_length=100)
     type = models.CharField(
@@ -71,3 +76,7 @@ class TeamMember(models.Model):
 
 class Gallery(models.Model):
     image = models.CharField(max_length=200)
+
+
+class Notification(models.Model):
+    notification = models.CharField(max_length=500)
