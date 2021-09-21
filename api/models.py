@@ -29,7 +29,7 @@ class Event(models.Model):
     end_date = models.DateTimeField()
     type = models.CharField(
         max_length=200, choices=TYPE_CHOICES, default='Coding')
-    duration = models.CharField(max_length=20)
+    duration = models.CharField(max_length=100)
     total_prize = models.CharField(max_length=100)
     registration_link = models.CharField(max_length=100)
     year = models.ForeignKey(
