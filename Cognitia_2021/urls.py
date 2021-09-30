@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls.conf import include
 from rest_framework import routers
+import rest_framework
 from froala_editor import views
 from api import views
 
@@ -19,7 +20,8 @@ router.register('notification', views.NotificationView,
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('froala_editor/', include('froala_editor.urls'))
+    path('froala_editor/', include('froala_editor.urls')),
+    path('auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG:

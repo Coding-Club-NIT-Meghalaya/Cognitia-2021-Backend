@@ -13,7 +13,7 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = '__all__'
-        depth = 1
+        # depth = 1
 
 
 class TeamMemberSerializer(serializers.ModelSerializer):
